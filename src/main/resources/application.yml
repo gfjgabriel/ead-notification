@@ -28,8 +28,8 @@ spring:
     output:
       ansi:
         enabled: Always
-    rabbitmq:
-      addresses: amqps://akfqarag:tbY1y22ne27yDy8P4YhyVaTzVVJq5S9O@woodpecker.rmq.cloudamqp.com/akfqarag
+  rabbitmq:
+    addresses: amqps://ycnwvpku:jp_oZe_4-_6nNfdaYQtiasDHM_-spRXS@moose.rmq.cloudamqp.com/ycnwvpku
 
 logging:
   level:
@@ -37,6 +37,16 @@ logging:
     root: INFO
     org.springframework.web: DEBUG
     org.hibernate: INFO
+
+ead:
+  broker:
+    exchange:
+      notificationCommandExchange: ead.notificationcommand
+    queue:
+      notificationCommandQueue:
+        name: ead.notificationcommand.ms.notification
+    key:
+      notificationCommandKey: ms.notification
 
 management:
   endpoints:
