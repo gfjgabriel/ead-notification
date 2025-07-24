@@ -4,7 +4,6 @@ import com.ead.notification.dtos.NotificationCommandDTO;
 import com.ead.notification.enums.NotificationStatus;
 import com.ead.notification.models.NotificationModel;
 import com.ead.notification.services.NotificationService;
-import lombok.AllArgsConstructor;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
@@ -18,10 +17,13 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 @Component
-@AllArgsConstructor
 public class NotificationConsumer {
 
     private final NotificationService notificationService;
+
+    public NotificationConsumer(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
 
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "${ead.broker.queue.notificationCommandQueue.name}", durable = "true"),

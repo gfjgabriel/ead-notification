@@ -1,15 +1,19 @@
 package com.ead.notification.dtos;
 
 import com.ead.notification.enums.NotificationStatus;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 
-@Getter
-@Setter
 public class NotificationDTO {
 
     @NotNull
     private NotificationStatus notificationStatus;
+
+    public NotificationStatus getNotificationStatus() {
+        return notificationStatus;
+    }
+
+    public void setNotificationStatus(NotificationStatus notificationStatus) {
+        this.notificationStatus = notificationStatus;
+    }
 }

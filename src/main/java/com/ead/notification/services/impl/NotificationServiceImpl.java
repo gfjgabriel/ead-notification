@@ -4,7 +4,6 @@ import com.ead.notification.enums.NotificationStatus;
 import com.ead.notification.models.NotificationModel;
 import com.ead.notification.repositories.NotificationRepository;
 import com.ead.notification.services.NotificationService;
-import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -13,10 +12,13 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@AllArgsConstructor
 public class NotificationServiceImpl implements NotificationService {
 
     private final NotificationRepository repository;
+
+    public NotificationServiceImpl(NotificationRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public NotificationModel saveNotification(NotificationModel notificationModel) {
